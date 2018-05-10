@@ -1,13 +1,15 @@
 $( document ).ready(function(){
-  $(".dropdown-trigger").dropdown({hover: false});
+
+
+  $(".dropdown-trigger").dropdown();
+  $('.carousel.carousel-slider').carousel();
+
+
 });
 
-var instance = M.Carousel.init({
-  fullWidth: true
-});
 
-// Or with jQuery
 
-$('.carousel.carousel-slider').carousel({
-  fullWidth: true
-});
+
+
+
+
