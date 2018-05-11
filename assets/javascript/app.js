@@ -60,15 +60,17 @@ $("#searchTerms").on("click", function(){
     exFood = $("#exFood").val("");
 });
 
-//Materialize carrossel
+//Materialize carousel
 $( document ).ready(function(){
 
 
   $(".dropdown-trigger").dropdown();
   $('.carousel.carousel-slider').carousel();
-
+  $('.collapsible').collapsible();
 
 });
+
+
 
 
 
