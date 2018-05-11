@@ -63,15 +63,17 @@ $("#searchTerms").on("click", function(){
     
 });
 
-//Materialize carrossel
+//Materialize carousel
 $( document ).ready(function(){
 
 
   $(".dropdown-trigger").dropdown();
   $('.carousel.carousel-slider').carousel();
-
+  $('.collapsible').collapsible();
 
 });
+
+
 
 
 
