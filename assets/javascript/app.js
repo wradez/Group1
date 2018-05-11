@@ -69,7 +69,11 @@ $( document ).ready(function(){
 
   $(".dropdown-trigger").dropdown();
   $('.carousel.carousel-slider').carousel();
-  $('.collapsible').collapsible();
+  $('.collapsible').collapsible(); 
+  var instance = M.Collapsible.getInstance(elem);
+  instance.open(3);
+  instance.close(3);
+  instance.destroy();
 
 });
 
