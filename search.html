@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified JavaScript -->
 
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/search.css" />
 
 </head>
 
@@ -67,43 +67,44 @@
             </a>
         </div> -->
         <div class="container 1">
-           <label class="searchIn"><strong>Search By Ingredients</strong></label><hr>
+           <label class="searchIn"><strong>Search By Ingredients</strong></label>
+           <div><hr style="margin-bottom: 50px"></hr></div>
            <div class="row">
             <form class="col s12">
               <div class="row">
-                <div class="input-field col s6">
-                  <input placeholder="Placeholder" id="foodSearch" type="text">
-                  <label for="foodSearch">Ingredients</label>
+                <div class="input-field col s12">
+                  <input placeholder="Ingredients" id="foodSearch" type="text">
+                  <label for="foodSearch" style="font-size: 20px" ><b>Ingredients</b></label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-                  <label for="disabled">Diet Type</label>
+                  <input placeholder="Specify Diet Type" id="diet" type="text" >
+                  <label for="diet" style="font-size: 20px"><b>Diet Type</b></label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input id="password" type="text" class="validate">
-                  <label for="password">Health</label>
+                  <input placeholder="Allergies" id="health" type="text" >
+                  <label for="health" style="font-size: 20px"><b>Health</b></label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input id="email" type="text" class="validate">
-                  <label for="email">Calories</label>
+                  <input placeholder="Calorie Range" id="calories" type="text" >
+                  <label for="calories" style="font-size: 20px"><b>Calories</b></label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input id="email" type="text" class="validate">
-                  <label for="email">Total Cook Time</label>
+                  <input placeholder="Duration of Cook Time" id="cookTime" type="text" >
+                  <label for="cookTime" style="font-size: 20px"><b>Total Cook Time</b></label>
                 </div>
             </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <input id="email" type="text" class="validate">
-                  <label for="email">Excluded Ingredients</label>
+                  <input placeholder="What DON'T you want" id="exFood" type="text" >
+                  <label for="exFood" style="font-size: 20px"><b>Excluded Ingredients</b></label>
                 </div>
               </div>
             </form>

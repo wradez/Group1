@@ -1,4 +1,11 @@
 .searchIn {
-    text-size-adjust: 3em;
+    font-size: 2em;
+    margin-top: 3em;
     
+}
+.container  {
+    margin-top: 2em;
+}
+.ingredients {
+    font-size: 10em;
 }
