@@ -7,6 +7,7 @@ var config = {
     messagingSenderId: "562329637910"
 };
   firebase.initializeApp(config);
+  var auth = firebase.auth ();
 
   function toggleSignIn() {
     if (firebase.auth().currentUser) {
@@ -28,22 +29,52 @@ var config = {
       // [START authwithemail]
       firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
         // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // [START_EXCLUDE]
-        if (errorCode === 'auth/wrong-password') {
-          alert('Wrong password.');
-        } else {
-          alert(errorMessage);
-        }
-        console.log(error);
-        document.getElementById('btnLogin').disabled = false;
+
         // [END_EXCLUDE]
       });
       // [END authwithemail]
     }
     document.getElementById('btnLogin').disabled = true;
   }
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+ .catch(function (err) {
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // [START_EXCLUDE]
+  if (errorCode == 'auth/weak-password') {
+    alert('The password is too weak.');
+  } else {
+    alert(errorMessage);
+  }
+  console.log(error);
+ 
+});
+  document.getElementById('btnLogin').disabled = false;
+   // Handle errors
+
+
+// Sign in existing user
+firebase.auth().signInWithEmailAndPassword(email, password)
+ .catch(function(err) {
+    // [END_EXCLUDE]
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // [START_EXCLUDE]
+  if (errorCode === 'auth/wrong-password') {
+    alert('Wrong password.');
+  } else {
+    alert(errorMessage);
+  }
+  console.log(error);
+
+   // Handle errors
+ });
+
+// Sign out user
+firebase.auth().signOut()
+ .catch(function (err) {
+   // Handle errors
+ });
   /**
    * Handles the sign up button press.
    */
@@ -155,8 +186,8 @@ var config = {
     // [END authstatelistener]
     document.getElementById('btnLogin').addEventListener('click', toggleSignIn, false);
     document.getElementById('btnSignUp').addEventListener('click', handleSignUp, false);
-    document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
-    document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
+    // document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
+    // document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
   }
   window.onload = function() {
     initApp();
