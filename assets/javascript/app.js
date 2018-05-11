@@ -45,10 +45,12 @@ $("#searchTerms").on("click", function(){
 
             var recipeDiv = $("<div>").addClass("text-canter");
             var recipeImg = $("<img src='" + imageURL + "' >");
+            var recipeInfo = $("<h3>" + label + "</h3><p>Yield: " + yield + "</p><p>Calories: " + calories + "</p><p>Dietary Labels: " + dietLabels + "</p><p>Allergey Information: " + healthLabels + "</p><p> Ingredients: " + ingredients + "</p>");
             recipeDiv.append(recipeImg);
-
-            //need to finish appending the proper variables to the recipeDiv
-            //need to prepend to the webpage when it is built
+            recipeDiv.append(recipeInfo);
+            
+            //$("#dumplocation").append(recipeDiv);
+            //need to get the proper ID for the recipe dump location and test how teh informaiton looks. I believe there will be some issues to fix
         }
     });
 
@@ -58,6 +60,7 @@ $("#searchTerms").on("click", function(){
     calories = $("#calories").val("");
     cookTime = $("#cookTime").val("");
     exFood = $("#exFood").val("");
+    
 });
 
 //Materialize carousel
