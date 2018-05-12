@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified JavaScript -->
 
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/search.css" />
 
 </head>
 
@@ -67,13 +67,14 @@
             </a>
         </div> -->
         <div class="container 1">
-           <label class="searchIn"><strong>Search By Ingredients</strong></label><hr>
+           <label class="searchIn"><strong>Search By Ingredients</strong></label>
+           <div><hr style="margin-bottom: 50px"></hr></div>
            <div class="row">
             <form class="col s12">
               <div class="row">
-                <div class="input-field col s6">
-                  <input placeholder="Placeholder" id="foodSearch" type="text">
-                  <label for="foodSearch">Ingredients</label>
+                <div class="input-field col s12">
+                  <input placeholder="Ingredients" id="foodSearch" type="text">
+                  <label for="foodSearch" style="font-size: 20px" ><b>Ingredients (Ex: Chicken, Broccoli, Cheese etc.)</b></label>
                 </div>
               </div>
               <div class="row">
@@ -106,10 +107,15 @@
                   <label for="exFood">Excluded Ingredients</label>
                 </div>
               </div>
-              <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                  <i class="material-icons right">cloud</i>
+
+              <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                <i class="material-icons right">send</i>
               </button>
+              
             </form>
+          </div>
+          <div>
+            
           </div>
         </div>
 
@@ -122,7 +128,7 @@
             <div class="container">
               <div class="row">
                 <div class="col l6 s12">
-                  <h5 class="white-text">Footer Content</h5>
+                  <h5 class="white-text">What's Cookin</h5>
                   <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
