@@ -16,7 +16,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 </head>
 <body>
-    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <nav>
+                <div class="nav-wrapper">
+                    <a href="#!" class="brand-logo">What's Cooking?</a>
+                </div>
+            </nav>
+    
+    <div class="container">
+        <input id="email" type="email" placeholder="Email">
 
         <!-- Header section containing title -->
         <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700">
@@ -54,3 +61,50 @@
       </div>
       </body>
       </html>
+        <input id="password" type="password" placeholder="Password">
+
+        <button id ="btnLogin" class="btn btn-action">
+            Log in
+        </button>
+
+        <button id="btnSignUp" class="btn btn-secondary">
+            Sign Up
+        </button>
+
+        <button id="btnLogout" class="btn btn-action hide">
+            Log Out
+        </button>
+    </div>
+    <br>
+    <footer class="page-footer" style="margin-top: 255px">
+            <div class="container">
+              <div class="row">
+                <div class="col l6 s12">
+                  <h5 class="white-text">Footer Content</h5>
+                  <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                  <h5 class="white-text">Links</h5>
+                  <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="footer-copyright">
+              <div class="container">
+              © 2018 Copyright Text
+              <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+              </div>
+            </div>
+          </footer>
+
+<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
+<script src="assets/javascript/login.js"></script>  
+</body>
+</html>

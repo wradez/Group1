@@ -167,7 +167,7 @@ function initApp() {
 window.onload = function() {
   initApp();
 };
-function writeUserData(userId, name, email, imageUrl) {
+function writeUserData(user) {
   firebase.database().ref('users/' + userId).set({
     username: name,
     email: email,
