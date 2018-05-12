@@ -49,7 +49,7 @@ $( document ).ready(function(){
 
                 var recipeDiv = $("<div>");
                 var recipeImg = $("<img src='" + imageURL + "' >");
-                var recipeInfo = $("<h3>" + label + "</h3><p>Yield: " + yield + "</p><p>Calories: " + calories + "</p><p>Dietary Labels: " + dietLabels + "</p><p>Allergey Information: " + healthLabels + "</p><p> Ingredients: " + ingredients + "</p>");
+                var recipeInfo = $("<h3>" + label + "</h3><p>Yield: " + yield + "</p><p>Calories: " + calories + "</p><p>Dietary Labels: " + dietLabels + "</p><p>Allergey Information: " + healthLabels + "</p><p> Ingredients: " + ingredients + "</p><p>" + sourceURL + "</p>");
                 recipeDiv.append(recipeImg);
                 recipeDiv.append(recipeInfo);
 
