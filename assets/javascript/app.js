@@ -10,7 +10,9 @@ var exFood = "";
 $( document ).ready(function(){
 
     //on click of the form submit, the form values will be assigned to the global variables and then passed into the queryURL. The queryURL will then be passed to the AJAX call to pull information based on the search terms
-    $("#searchTerms").on("click", function(){
+    $("#searchTerms").on("click", function(event){
+        event.preventDefault();
+
         foodSearch = $("#foodSearch").val().trim();
         diet = $("#diet").val().trim();
         health = $("#health").val().trim();
@@ -50,6 +52,8 @@ $( document ).ready(function(){
                 var recipeInfo = $("<h3>" + label + "</h3><p>Yield: " + yield + "</p><p>Calories: " + calories + "</p><p>Dietary Labels: " + dietLabels + "</p><p>Allergey Information: " + healthLabels + "</p><p> Ingredients: " + ingredients + "</p>");
                 recipeDiv.append(recipeImg);
                 recipeDiv.append(recipeInfo);
+
+                $("#searchResults").append(recipeDiv);
                 
                 //$("#dumplocation").append(recipeDiv);
                 //need to get the proper ID for the recipe dump location and test how teh informaiton looks. I believe there will be some issues to fix
