@@ -122,22 +122,28 @@ function initApp() {
   firebase.auth().onAuthStateChanged(function(user) {
     // [START_EXCLUDE silent]
     document.getElementById('quickstart-verify-email').disabled = true;
+
+
+
     // [END_EXCLUDE]
     if (user) {
       // User is signed in.
-      var displayName = user.displayName;
+      var name = user.displayName;
       var email = user.email;
       var emailVerified = user.emailVerified;
       var photoURL = user.photoURL;
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
       var providerData = user.providerData;
+
+      
       // [START_EXCLUDE]
       document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
       document.getElementById('quickstart-sign-in').textContent = 'Sign out';
       document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
       if (!emailVerified) {
         document.getElementById('quickstart-verify-email').disabled = false;
+        
       }
       // [END_EXCLUDE]
     } else {
@@ -161,3 +167,10 @@ function initApp() {
 window.onload = function() {
   initApp();
 };
+function writeUserData(userId, name, email, imageUrl) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  });
+}
