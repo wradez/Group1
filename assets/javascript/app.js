@@ -25,7 +25,8 @@ $( document ).ready(function(){
     $("#searchTerms").on("click", function(event){
         event.preventDefault();
 
-        $("#collapsibleSubmit").attr("style", "");
+        $(".collapsible-body").attr("style", "display:none"); 
+        $("#collapsibleSubmit").removeClass("active");
 
         foodSearch = $("#foodSearch").val().trim();
         diet = $("#diet").val().trim();
@@ -148,9 +149,7 @@ $( document ).ready(function(){
             $("#featured-recipes").append(divRow);
         }
     });
-
-
-
+            
 
     $(".dropdown-trigger").dropdown();
     $('.carousel.carousel-slider').carousel();
