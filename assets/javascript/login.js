@@ -50,6 +50,7 @@ var config = {
   function handleSignUp() {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
+    signUp();
     if (email.length < 4) {
       alert('Please enter an email address.');
       return;
@@ -69,12 +70,28 @@ var config = {
         alert('The password is too weak.');
       } else {
         alert(errorMessage);
+        
       }
       console.log(error);
       // [END_EXCLUDE]
     });
     // [END createwithemail]
   }
+  function signUp(){
+    //Get DOM data
+    const email = String(document.getElementById('email').value);
+    const pass = String(document.getElementById('password').value);
+    const name = String(document.getElementById('name').value);
+    const auth = firebase.auth();
+    var promise = auth.createUserWithEmailAndPassword(email,pass);
+    promise.catch(e => console.log(e.message));
+
+    firebase.database().ref('users/' + firebase.auth().currentUser.uid).set({
+        name : name,
+        email : email,
+        uid: firebase.auth().currentUser.uid
+    });
+}
   /**
    * Sends an email verification to the user.
    */
