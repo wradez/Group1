@@ -1,13 +1,25 @@
 //Materialize carousel
 $( document ).ready(function(){
 
-//global variables
-var foodSearch = "";
-var diet = "";
-var health = "";
-var calories = "";
-var cookTime = 0;
-var exFood = "";
+    //global variables
+    var foodSearch = "";
+    var diet = "";
+    var health = "";
+    var calories = "";
+    var cookTime = 0;
+    var exFood = "";
+    var addIngredient = "";
+
+    $("#addIngredient").on("click",function(event){
+        event.preventDefault();
+
+        addIngredient = $("#addItem").val().trim();
+
+        var ingredientDiv = $('<p class="red lighten-5 col s4 m2"><label><input class="with-gap" name="group3" type="radio" checked /><span>Red</span></label></p>');
+
+        // $("#addedItems").append(ingredientDiv);
+        //need to add some more formating and get teh button to the proper place
+    });
 
     //on click of the form submit, the form values will be assigned to the global variables and then passed into the queryURL. The queryURL will then be passed to the AJAX call to pull information based on the search terms
     $("#searchTerms").on("click", function(event){
