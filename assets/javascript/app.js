@@ -52,6 +52,7 @@ $( document ).ready(function(){
         fireData.ref().push({
             ingredient: foodSearch
         })
+        
 
         var queryURL = "https://api.edamam.com/search?app_id=42ef94b5&app_key=b1f67a4f17a704d595b115098ac477e7&q=" + foodSearch + "&from=0&to=15"; // + "&diet=" + diet + "&health=" + health + "&calories=" + calories + "&time=" + cookTime + "&excluded=" + exFood
 
