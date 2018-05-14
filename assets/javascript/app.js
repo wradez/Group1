@@ -15,15 +15,17 @@ $( document ).ready(function(){
 
         addIngredient = $("#addItem").val().trim();
 
-        var ingredientDiv = $('<p class="red lighten-5 col s4 m2"><label><input class="with-gap" name="group3" type="radio" checked /><span>Red</span></label></p>');
+        var ingredientDiv = $('<p class="red lighten-5 col s4 m3"><label><input class="with-gap" name="group3" type="radio" checked /><span>' + addIngredient + '</span></label></p>');
 
-        // $("#addedItems").append(ingredientDiv);
+        $("#addedItems").append(ingredientDiv);
         //need to add some more formating and get teh button to the proper place
     });
 
     //on click of the form submit, the form values will be assigned to the global variables and then passed into the queryURL. The queryURL will then be passed to the AJAX call to pull information based on the search terms
     $("#searchTerms").on("click", function(event){
         event.preventDefault();
+
+        $("#collapsibleSubmit").attr("style", "");
 
         foodSearch = $("#foodSearch").val().trim();
         diet = $("#diet").val().trim();
@@ -32,14 +34,14 @@ $( document ).ready(function(){
         cookTime = $("#cookTime").val().trim();
         exFood = $("#exFood").val().trim();
 
-        var queryURL = "https://api.edamam.com/search?app_id=42ef94b5&app_key=b1f67a4f17a704d595b115098ac477e7&from=1&to=16q=" + foodSearch; // + "&diet=" + diet + "&health=" + health + "&calories=" + calories + "&time=" + cookTime + "&excluded=" + exFood
+        var queryURL = "https://api.edamam.com/search?app_id=42ef94b5&app_key=b1f67a4f17a704d595b115098ac477e7&q=" + foodSearch + "&from=0&to=15"; // + "&diet=" + diet + "&health=" + health + "&calories=" + calories + "&time=" + cookTime + "&excluded=" + exFood
 
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function (response) {
 
-            for(var i = 0; i < 12; i += 3){
+            for(var i = 0; i < 16; i += 3){
                 var database1 = response.hits[i].recipe;
                 var database2 = response.hits[i+1].recipe;
                 var database3 = response.hits[i+2].recipe;
@@ -99,15 +101,15 @@ $( document ).ready(function(){
         
     });
 
-    var randomFoodArray = ["chicken", "steak", "eggs", "pasta", "broccoli", "green+beans", "fish", "pork", "desert", "strawberry", "banana", "onion", "garlic", "salt+pepper"]; 
+    var randomFoodArray = ["chicken", "steak", "eggs", "pasta", "kale", "green+beans", "fish", "pork", "desert", "strawberry", "banana", "onion", "garlic", "salt+pepper", "mango", "chocolate", "vanilla", "beer", "wine", "peanut+butter", "italian", "chinese", "french", "brazilian"]; 
     var randomChoice = Math.floor(Math.random() * randomFoodArray.length);
-    var mainPageURL = "https://api.edamam.com/search?app_id=42ef94b5&app_key=b1f67a4f17a704d595b115098ac477e7&q=" + randomFoodArray[randomChoice] + "&from=0&to=16";
+    var mainPageURL = "https://api.edamam.com/search?app_id=42ef94b5&app_key=b1f67a4f17a704d595b115098ac477e7&q=" + randomFoodArray[randomChoice] + "&from=0&to=9";
     $.ajax({
         url: mainPageURL,
         method: "GET"
     }).then(function (response) {
 
-        for(var i = 0; i < 6; i += 2){
+        for(var i = 0; i < 10; i += 2){
             var database1 = response.hits[i].recipe;
             var database2 = response.hits[i+1].recipe;
 
