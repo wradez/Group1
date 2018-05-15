@@ -2,14 +2,41 @@
   text-align: center;
   float: left;
 }
-
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
-
 main {
   flex: 1 0 auto;
 }
+   
+     
+     
+  #map {
+ 
+    min-height: 450px;
+    left: 600 px;
+    width: 95%;
+    border-radius: 10px;
     
+  
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }     
+  
+.stores{
+  height: 100%;
+  width: 100%;
+  
+  
+  
+}
+.grocery{
+  margin-right: 20px;
+  /* align-content: center; */
+}

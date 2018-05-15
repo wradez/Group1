@@ -24,19 +24,7 @@ $( document ).ready(function(){
     var calories = "";
     var cookTime = 0;
     var exFood = "";
-    var addIngredient = "";
     var category = "";
-
-    $("#addIngredient").on("click",function(event){
-        event.preventDefault();
-
-        addIngredient = $("#addItem").val().trim();
-
-        var ingredientDiv = $('<p class="red lighten-5 col s4 m3"><label><input class="with-gap" name="group3" type="radio" checked /><span>' + addIngredient + '</span></label></p>');
-
-        $("#addedItems").append(ingredientDiv);
-        //need to add some more formating and get teh button to the proper place
-    });
 
     //on click of the form submit, the form values will be assigned to the global variables and then passed into the queryURL. The queryURL will then be passed to the AJAX call to pull information based on the search terms
     $("#searchTerms").on("click", function(event){
@@ -46,8 +34,8 @@ $( document ).ready(function(){
         $("#collapsibleSubmit").removeClass("active");
 
         foodSearch = $("#foodSearch").val().trim();
-        diet = $("#diet").val().trim();
-        health = $("#health").val().trim();
+        diet = $("#diet").val();
+        health = $("#health").val();
         calories = $("#calories").val().trim();
         cookTime = $("#cookTime").val().trim();
         exFood = $("#exFood").val().trim();
@@ -55,9 +43,9 @@ $( document ).ready(function(){
 
         var queryURL = "https://api.edamam.com/search?app_id=42ef94b5&app_key=b1f67a4f17a704d595b115098ac477e7&q=" + foodSearch + "&from=0&to=15"; 
 
-        if(diet != ""){
+        if(diet != "Choose your option"){
             queryURL = queryURL + "&diet=" + diet;
-        }else if(health != ""){
+        }else if(health != "Choose your option"){
             queryURL = queryURL + "&health=" + health;
         }else if(calories != ""){
             queryURL = queryURL + "&calories=" + parseInt(calories);
@@ -136,6 +124,19 @@ $( document ).ready(function(){
         
     });
 
+    $("body").on("click", "#addIngredient", function(event){
+        event.preventDefault();
+
+        var addIngredient = $("#addItem").val().trim();
+        console.log(addIngredient);
+        currentUser = firebase.auth().currentUser.uid;
+        console.log(currentUser);
+        fireData.ref(`users/` + currentUser + `/ingredients`).push(addIngredient).then((data) => {
+            console.log(data);
+        });    
+        $("#addItem").val("");
+    });
+
     $("body").on("click", ".btn-floating", function(event){
         event.preventDefault();
         var grabDataID = $(this).attr("data-id");
@@ -193,48 +194,81 @@ $( document ).ready(function(){
             $("#featured-recipes").append(divRow);
         }
     });
-    console.log(firebase.auth().currentUser);
-    fireData.ref(`users/` + firebase.auth().currentUser).on("value", function(userSnapshot) {
-        console.log(userSnapshot.recipes);
-        var userRecipe = userSnapshot.val().recipes;
-        console.log(userRecipe);
-        for(var i = 0; i < userRecipe.length; i += 3){
 
-            var divRow = $("<div class='row' >");
-            var divImg1 = $('<div class="col s12 m4"><div class="card"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="' + userRecipe[i].image + '"></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">' + userRecipe[i].label + '<i class="material-icons right">more_vert</i></span><p><a href="' + userRecipe[i].url + '">Preparation Instructions</a></p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">' + userRecipe[i].label + '<i class="material-icons right">close</i></span><p>Servings: ' + userRecipe[i].yield + '</p><p>Calories: ' + userRecipe[i].calories + '</p><p>Dietary Info: ' + userRecipe[i].dietLabels + '</p><p>Health Consideration: ' + userRecipe[i].healthLabels + '</p><p>Ingredients: ' + userRecipe[i].ingredientLines + '</p><a href="' + userRecipe[i].url + '">Preparation Instructions</a></div></div></div>');
-            var divImg2 = $('<div class="col s12 m4"><div class="card"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="' + userRecipe[i+1].image + '"></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">' + userRecipe[i+1].label + '<i class="material-icons right">more_vert</i></span><p><a href="' + userRecipe[i+1].url + '">Preparation Instructions</a></p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">' + userRecipe[i+1].label + '<i class="material-icons right">close</i></span><p>Servings: ' + userRecipe[i+1].yield + '</p><p>Calories: ' + userRecipe[i+1].calories + '</p><p>Dietary Info: ' + userRecipe[i+1].dietLabels + '</p><p>Health Consideration: ' + userRecipe[i+1].healthLabels + '</p><p>Ingredients: ' + userRecipe[i+1].ingredientLines + '</p><a href="' + userRecipe[i+1].url + '">Preparation Instructions</a></div></div></div>');
-            var divImg3 = $('<div class="col s12 m4"><div class="card"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="' + userRecipe[i+2].image + '"></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">' + userRecipe[i+2].label + '<i class="material-icons right">more_vert</i></span><p><a href="' + userRecipe[i+2].url + '">Preparation Instructions</a></p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">' + userRecipe[i+2].label + '<i class="material-icons right">close</i></span><p>Servings: ' + userRecipe[i+2].yield + '</p><p>Calories: ' + userRecipe[i+2].calories + '</p><p>Dietary Info: ' + userRecipe[i+2].dietLabels + '</p><p>Health Consideration: ' + userRecipe[i+2].healthLabels + '</p><p>Ingredients: ' + userRecipe[i+2].ingredientLines + '</p><a href="' + userRecipe[i+2].url + '">Preparation Instructions</a></div></div></div>');
+    //myIngredients.html on user login function to append users' ingredients
+    firebase.auth().onAuthStateChanged(function(user){
+        if(user){
+            console.log("You're logged in");
 
-            divRow.append(divImg1);
-            divRow.append(divImg2);
-            divRow.append(divImg3);
+            var loggedInUser = firebase.auth().currentUser.uid;
 
-            $("#savedRecipes").append(divRow);
-        }
+            fireData.ref(`users/` + loggedInUser).on("value", function(userSnapshot) {
+                var userIngredients = userSnapshot.val().ingredients;
+                console.log(userIngredients);
+
+                var divRow = $("<div class='row' >");
+
+                for (var ingredientObj in userIngredients) {
+                    var savedIngredient = userIngredients[ingredientObj];
+                    var ingredientCheckbox = $('<p><label><input type="checkbox" /><span>' + savedIngredient + '</span></label></p>');
         
+                    divRow.append(ingredientCheckbox);
+                    
+                }
 
+                $("#yourIngredients").html(divRow);
+        
+              }, function(errorObject) {
+                console.log("Errors handled: " + errorObject);
+              });
+        }else{
+            alert("Please Login");
+            //need to change this to a modal
+        }
 
+    });
 
-      }, function(errorObject) {
-        console.log("Errors handled: " + errorObject);
-      });
-            
+    //myRecipe.html on user login function to append users' recipes
+    firebase.auth().onAuthStateChanged(function(user){
+        if(user){
+            console.log("You're logged in");
+
+            var loggedInUser = firebase.auth().currentUser.uid;
+
+            fireData.ref(`users/` + loggedInUser).on("value", function(userSnapshot) {
+                var userRecipe = userSnapshot.val().recipes;
+                console.log(userRecipe);
+
+                var divRow = $("<div class='row' >");
+
+                for (var recipeObj in userRecipe) {
+                    var savedRecipe = userRecipe[recipeObj];
+                    savedRecipe = savedRecipe.recipe;
+                    var divRecipe = $('<div class="col s12 m4"><div class="card"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="' + savedRecipe.image + '"></div><div class="card-content"><span class="card-title activator grey-text text-darken-4">' + savedRecipe.label + '<i class="material-icons right">more_vert</i></span><p><a href="' + savedRecipe.url + '">Preparation Instructions</a></p></div><div class="card-reveal"><span class="card-title grey-text text-darken-4">' + savedRecipe.label + '<i class="material-icons right">close</i></span><p>Servings: ' + savedRecipe.yield + '</p><p>Calories: ' + savedRecipe.calories + '</p><p>Dietary Info: ' + savedRecipe.dietLabels + '</p><p>Health Consideration: ' + savedRecipe.healthLabels + '</p><p>Ingredients: ' + savedRecipe.ingredientLines.join(", ") + '</p><a href="' + savedRecipe.url + '">Preparation Instructions</a></div></div></div>');
+        
+                    divRow.append(divRecipe);
+                    
+        
+                    $("#savedRecipes").append(divRow);
+                }
+        
+              }, function(errorObject) {
+                console.log("Errors handled: " + errorObject);
+              });
+        
+        }else{
+            alert("Please Login");
+            //need to change this to a modal
+        }
+    });
 
     $(".dropdown-trigger").dropdown();
     $('.carousel.carousel-slider').carousel();
     $('.collapsible').collapsible(); 
+    $('select').formSelect();
     var instance = M.Collapsible.getInstance(elem);
     instance.open(3);
     instance.close(3);
     instance.destroy();
 
 });
-
-
-
-
-
-
-
-
-
