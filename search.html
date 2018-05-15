@@ -45,7 +45,7 @@
                 <a href="search.html"><i class="material-icons left">search</i>Search</a>
               </li>
               <li>
-                <a href="badges.html"><i class="material-icons left">location_searching</i>Stores</a>
+                <a href="myStore.html"><i class="material-icons left">location_searching</i>Stores</a>
               </li>
               <!-- Dropdown Trigger -->
               <li>
@@ -71,38 +71,75 @@
                             <div class="row">
                               <div class="input-field col s12">
                                 <input placeholder="Ingredients" id="foodSearch" type="text">
-                                <label for="foodSearch" style="font-size: 20px" ><b>Ingredients (Ex: Chicken, Broccoli, Cheese etc.)</b></label>
+                                <label for="foodSearch" style="font-size: 20px" ><b>Ingredients (Ex: Chicken, Broccoli, Cheese etc.)</b> <em>For multiple ingredients (Ex: chicken+cheese)</em></label>
                               </div>
                             </div>
                             <div class="row">
                               <div class="input-field col s12">
-                                <input id="diet" type="text" class="validate">
-                                <label for="diet">Diet Type</label>
+                                <select>
+                                  <option value="" disabled selected>Choose your option</option>
+                                  <option value="balanced">balanced</option>
+                                  <option value="high-fiber">high-fiber</option>
+                                  <option value="high-protein">high-protein</option>
+                                  <option value="low-carb">low-carb</option>
+                                  <option value="low-fat">low-fat</option>
+                                  <option value="low-sodium">low-sodium</option>
+                                </select>
+                                <label for="diet"><b>Diet Type</b> - <em>enum</em></label>
                               </div>
                             </div>
                             <div class="row">
                               <div class="input-field col s12">
-                                <input type="text" id="health" class="validate">
-                                <label for="health">Health</label>
-                              </div>
+                                  <select multiple>
+                                    <option value="" disabled selected>Choose your option</option>
+                                    <option value="alcohol-free">alcohol-free</option>
+                                    <option value="celery-free">celery-free</option>
+                                    <option value="rustacean-free">crustacean-free</option>
+                                    <option value="dairy-fre">dairy-free</option>
+                                    <option value="egg-free">egg-free</option>
+                                    <option value="fish-free">fish-free</option>
+                                    <option value="gluten-free">gluten-free</option>
+                                    <option value="kidney-friendly">kidney-friendly</option>
+                                    <option value="kosher">kosher</option>
+                                    <option value="low-potassium">low-potassium</option>
+                                    <option value="lupine-free">lupine-free</option>
+                                    <option value="mustard-free">mustard-free</option>
+                                    <option value="No-oil-added">No-oil-added</option>
+                                    <option value="low-sugar">low-sugar</option>
+                                    <option value="paleo">paleo</option>
+                                    <option value="peanut-free">peanut-free</option>
+                                    <option value="pescatarian">pescatarian</option>
+                                    <option value="pork-free">pork-free</option>
+                                    <option value="red-meat-free">red-meat-free</option>
+                                    <option value="sesame-free">sesame-free</option>
+                                    <option value="shellfish-free">shellfish-free</option>
+                                    <option value="soy-free">soy-free</option>
+                                    <option value="sugar-conscious">sugar-conscious</option>
+                                    <option value="tree-nut-free">tree-nut-free</option>
+                                    <option value="vegan">vegan</option>
+                                    <option value="vegetarian">vegetarian</option>
+                                    <option value="wheat-free">wheat-free</option>
+                                  </select>
+                                  <label for="health"><b>Health</b> - <em>enum</em></label>
+                                </div>
                             </div>
                             <div class="row">
                             <!-- <div id="test-slider"></div> -->
                               <div class="input-field col s12">
-                                <input type="text" id="calories" class="validate">
-                                <label for="calories">Calories</label>
+                                <input placeholder="100-1000" type="text" id="calories" class="validate">
+                                <label for="calories" style="font-size: 20px"><b>Calories</b> <em>enter a range (Ex: 350-750)</em></label>
                               </div>
                             </div>
                             <div class="row">
                               <div class="input-field col s12">
-                                <input type="text" id="cookTime" class="validate">
-                                <label for="cookTime">Total Cook Time</label>
+                                <input placeholder="60" type="text" id="cookTime" class="validate">
+                                <label for="cookTime" style="font-size: 20px"><b>Total Cook Time</b> - <em>(in minutes)</em></label>
                               </div>
                           </div>
                             <div class="row">
                               <div class="input-field col s12">
-                                <input type="text" id="exFood" class="validate">
-                                <label for="exFood">Excluded Ingredients</label>
+                                <input placeholder="Peanuts+Almonds" type="text" id="exFood" class="validate">
+                                <label for="exFood" style="font-size: 20px"><b>Excluded Ingredients</b> - <em>Seperate multiple ingredients with a plus sign (Ex: chicken+cheese)</em></label>
                               </div>
                             </div>
               
@@ -132,31 +169,29 @@
 
 
           
-        <footer class="page-footer">
-            <div class="container">
-              <div class="row">
-                <div class="col l6 s12">
-                  <h5 class="white-text">What's Cookin</h5>
-                  <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                  <h5 class="white-text">Links</h5>
-                  <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                  </ul>
+        <div class="footer">
+            <footer class="page-footer">
+                <div class="container">
+                  <div class="row">
+                    <div class="col l6 s12">
+                      <h5 class="white-text">What's Cooking? </h5>
+                      <p class="grey-text text-lighten-4">
+                        This app and it's creators would like to thank you for visiting and usiing the app they've worked so hard on.
+                        
+                        
+                      </p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                      <h5 class="white-text">Links</h5>
+                <div class="footer-copyright">
+                  <div class="container">
+                    © 2018 Copyright Text
+                    <a class="grey-text text-lighten-4 right" href="#!">Find More Things.</a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="footer-copyright">
-              <div class="container">
-              © 2018 Copyright Text
-              <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-              </div>
-            </div>
-          </footer>
+              </footer>
+        </div>
 
 
 
