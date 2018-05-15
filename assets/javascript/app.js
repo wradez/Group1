@@ -35,7 +35,9 @@ $( document ).ready(function(){
 
         foodSearch = $("#foodSearch").val().trim();
         diet = $("#diet").val();
+        console.log(diet);
         health = $("#health").val();
+        console.log(health);
         calories = $("#calories").val().trim();
         cookTime = $("#cookTime").val().trim();
         exFood = $("#exFood").val().trim();
