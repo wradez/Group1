@@ -140,6 +140,7 @@ function initApp() {
     // [END_EXCLUDE]
     if (user) {
       // User is signed in.
+      window.location = 'myRecipe.html';
       var displayName = user.displayName;
       var email = user.email;
       var emailVerified = user.emailVerified;

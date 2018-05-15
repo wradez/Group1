@@ -34,6 +34,7 @@
         <a href="#!">myRecipes</a>
       </li>
     </ul>
+
     <nav>
       <div class="nav-wrapper">
         <a href="#!" class="brand-logo">What's Cooking?</a>
@@ -54,78 +55,15 @@
         </ul>
       </div>
     </nav>
-
   </header>
-
-  <ul class="collapsible popout">
   
-      <li>
-          <div class="collapsible-header"><i class="material-icons">restaurant</i>My Go To Breakfast Recipe</div>
-          <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-          <div class="col 16 s12">
-            </div>
-        </li>
-        <li>
-          <div class="collapsible-header"><i class="material-icons">restaurant</i>My Go To Lunch Recipe</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-          <div class="collapsible-header"><i class="material-icons">restaurant</i>My Go To Dinner Recipe</div>
-          <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-      </ul>
-      
-      <div class="row">
-        <div class="col s12 m3">
-          <div class="card">
-            <div class="card-image">
-              <img src="http://vegan-magazine.com/wp-content/uploads/2014/09/vegan-blueberry-cheesecake.jpg">
-              <span class="card-title">Card Title</span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m3">
-          <div class="card">
-            <div class="card-image">
-              <img src="images/sample-1.jpg">
-              <span class="card-title">Card Title</span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m3">
-          <div class="card">
-            <div class="card-image">
-              <img src="images/sample-1.jpg">
-              <span class="card-title">Card Title</span>
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col s12 m3">
-            <div class="card">
-              <div class="card-image">
-                <img src="images/sample-1.jpg">
-                <span class="card-title">Card Title</span>
-                <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-              </div>
-              <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-              </div>
-            </div>
-          </div>
-      </div>
-      </body>   
+  <div class="container 1">
+    <div class="row">
+      <h4><i class="material-icons">local_pizza</i><b> Saved Recipes</b></h4>
+    </div>
+    <div id="savedRecipes" class="card"></div>
+  </div>
+
   <footer class="page-footer">
     <div class="container">
       <div class="row">
@@ -142,6 +80,8 @@
       </div>
     </div>
   </footer>
+
+  <!-- Javascript Links -->
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>        
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
