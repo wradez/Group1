@@ -2,7 +2,9 @@
 
 This project uses HTML, CSS (Materialize), Javascript, and jQuery.
 
-This site was created to help users remember what they have in ntheir kitchen and find new recipes based off of what they have. First, you will need to create a user to login to the site.
+This site was created to help users remember what they have in their kitchen and find new recipes based off of what they have. It is currently still under construction, so you may notice a few links don't work properly.
+
+First, you will need to create a user to login to the site.
 
 <img width="1440" alt="screen shot 2018-09-17 at 4 54 28 pm" src="https://user-images.githubusercontent.com/36545686/45654775-6068a200-ba9a-11e8-91ac-3322126e86fb.png">
 
